@@ -32,6 +32,12 @@ def getnodes():
     print (response)
     return response
 
+def getnodenumber():
+    url = "https://sandboxapicdc.cisco.com/api/node/class/fabricNode.json?&order-by=fabricNode.modTs|desc"
+    response = json.loads(s.get(url, verify=False).text)
+    print (response)
+    return response
+
 
 # method: GET
 # url: https://sandboxapicdc.cisco.com/api/node/class/faultInfo.json?query-target-filter=and(ne(faultInfo.severity,"cleared"),eq(faultInfo.code,"F0104"))&order-by=faultInfo.severity|desc&page=0&page-size=15

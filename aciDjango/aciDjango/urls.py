@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from node.views import GetNode
+from node.views import GetNode, GetNodeInfo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', GetNode.as_view(template_name='node.html'), name='Node View'),
+    path('node/<int:node>/', GetNodeInfo),
 ]
 
 from django.views.generic import RedirectView
