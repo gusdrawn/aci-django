@@ -16,20 +16,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from node.views import GetNode, GetNodeInfo
+from findsfp.views import GetSFP
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', GetNode.as_view(template_name='node.html'), name='Node View'),
     path('node/<int:node>/', GetNodeInfo),
+    path('findsfp/', GetSFP),
 ]
 
-from django.views.generic import RedirectView
-urlpatterns += [
-    path('', RedirectView.as_view(url='/catalog/', permanent=True)),
-]
+# from django.views.generic import RedirectView
+# urlpatterns += [
+#     path('', RedirectView.as_view(url='/catalog/', permanent=True)),
+# ]
 
 
-from django.conf import settings
-from django.conf.urls.static import static
+# from django.conf import settings
+# from django.conf.urls.static import static
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
