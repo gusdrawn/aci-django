@@ -14,7 +14,6 @@ class GetNode(TemplateView):
         return context
 
 def GetNodeInfo(request, node):
-    template_name = 'node.html'
     print(node)
     return HttpResponse(node)
     

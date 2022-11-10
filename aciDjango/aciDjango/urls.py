@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', GetNode.as_view(template_name='node.html'), name='Node View'),
     path('node/<int:node>/', GetNodeInfo),
-    path('findsfp/', GetSFP),
+    path('findsfp/', GetSFP.as_view(template_name='sfp.html'), name='Find SFP'),
 ]
 
 # from django.views.generic import RedirectView

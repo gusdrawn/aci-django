@@ -6,3 +6,12 @@ from django.http import HttpResponse
 def GetSFP(requests):
     
     return HttpResponse("Welcome to Find SFP page")
+
+
+class GetSFP(TemplateView):
+    template_name = 'sfp.html'
+    def get_context_data(self, *args, **kwargs):
+        context = {
+            'nodes' : 'test',
+        }
+        return context
