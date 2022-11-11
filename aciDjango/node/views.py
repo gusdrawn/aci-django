@@ -1,4 +1,5 @@
 from django.views.generic import TemplateView
+from django.shortcuts import render
 from .services import get_droplets,login_aci,getnodes
 from django.http import HttpResponse
 
