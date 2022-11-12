@@ -1,0 +1,99 @@
+{% include "header.html" %}
+
+<!-- <i class="bi bi-check-circle"></i>
+<i class="bi bi-x-circle"></i> -->
+
+<h1>VLAN {{ vlan }}</h1>
+<h2>VLAN Status</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        
+        <th style="text-align: center;">Device</th>
+        <th style="text-align: center;">SPT</th>
+        <th style="text-align: center;">VLAN</th>
+        <th style="text-align: center;">VLAN Name</th>
+        <th style="text-align: center;">Po20</th>
+        <th style="text-align: center;">Po17</th>
+        <th style="text-align: center;">MAC Count</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for device in devicesChecked %}
+            <tr>
+                <td>{{ device.device }}</td>
+                {% if device.SPT == True %}
+                    <td><i class="bi bi-check-circle"></i></td>
+                {% else %}
+                    <td><i class="bi bi-x-circle"></i></td>
+                <td>TODO</td>
+                <td>TODO</td>
+                {% if device.Po20 == True %}
+                    <td><i class="bi bi-check-circle"></i></td>
+                {% else %}
+                    <td><i class="bi bi-x-circle"></i></td>
+                {% if device.Po17 == True %}
+                    <td><i class="bi bi-check-circle"></i></td>
+                {% else %}
+                    <td><i class="bi bi-x-circle"></i></td>
+                <td>TODO</td>
+            </tr>
+            {% endfor %}
+    </tbody>
+</table>
+
+<h2>VXLAN Status</h2>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        
+        <th style="text-align: center;">Device</th>
+        <th style="text-align: center;">BUM</th>
+        <th style="text-align: center;">Vlan-NVI</th>
+        <th style="text-align: center;">VNI Type</th>
+        <th style="text-align: center;">Route Target</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for sfp in listsfp %}
+            <tr>
+                <td>{{ sfp.device }}</td>
+                <td>{{ sfp.interface }}</td>
+                <td>{{ sfp.sfp }}</td>
+                <td>{{ sfp.link }}</td>
+                <td>{{ sfp.status }}</td>
+            </tr>
+            {% endfor %}
+    </tbody>
+</table>
+
+<h2>General DCI Status</h2>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        
+        <th style="text-align: center;">Device</th>
+        <th style="text-align: center;">BGP</th>
+        <th style="text-align: center;">OSPF</th>
+        <th style="text-align: center;">VPC</th>
+        <th style="text-align: center;">NVE</th>
+        <th style="text-align: center;">Storm-Control</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for sfp in listsfp %}
+            <tr>
+                <td>{{ sfp.device }}</td>
+                <td>{{ sfp.interface }}</td>
+                <td>{{ sfp.sfp }}</td>
+                <td>{{ sfp.link }}</td>
+                <td>{{ sfp.status }}</td>
+            </tr>
+            {% endfor %}
+    </tbody>
+</table>
+{% include "footer.html" %}

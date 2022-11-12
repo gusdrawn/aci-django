@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'catalog.apps.CatalogConfig',
     'node',
-    'findsfp'
+    'findsfp',
+    'checkvxlan'
 ]
 
 MIDDLEWARE = [
