@@ -71,7 +71,7 @@ def n9k_vlans(device,vlan,username,password):
             "type": "cli_show",
             "chunk": "0",
             "sid": "sid",
-            "input": "show nve vni all ;show nve peers",
+            "input": "show vlan id "+str(vlan)+" ;show spanning-tree vlan "+str(vlan)+"",
             "output_format": "json"
         }
     }

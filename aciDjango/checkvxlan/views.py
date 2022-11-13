@@ -8,10 +8,10 @@ devicesChecked = []
 devices_list = []
 
 devices_list.append({
-        'device':"sandbox-nxos-1.cisco.com",
+        'device':"10.227.70.145",
         'device_type': "n9k",
         'username': "admin",
-        'password': "Admin_1234!"
+        'password': "admin"
     })
 
 
@@ -40,14 +40,14 @@ def GetStatusVLAN(request, vlan):
             # ]
 
             # def n7k_vlans(device,vlan,username,password):
-            devicesChecked.append = n9k_vlans(device["device"],vlan,device["username"],device["password"])
+            devicesChecked.append(n9k_vlans(device["device"],vlan,device["username"],device["password"]))
         if device["device_type"] == "n7k":
-            devicesChecked.append = n7k_vlans(device["device"],vlan,device["username"],device["password"])
+            devicesChecked.append(n7k_vlans(device["device"],vlan,device["username"],device["password"]))
     context = {
         'devicesChecked': devicesChecked,
         'vlan': vlan
     }
-    template = loader.get_template('checkvlan.html')
+    print (context)
     return render(request, 'checkvlan.html', context)
 
 

@@ -22,21 +22,24 @@
         <tr>
             {% for device in devicesChecked %}
             <tr>
-                <td>{{ device.device }}</td>
+                <td>{{ device.Device }}</td>
                 {% if device.SPT == True %}
                     <td><i class="bi bi-check-circle"></i></td>
                 {% else %}
                     <td><i class="bi bi-x-circle"></i></td>
+                {% endif %}
                 <td>TODO</td>
                 <td>TODO</td>
                 {% if device.Po20 == True %}
                     <td><i class="bi bi-check-circle"></i></td>
                 {% else %}
                     <td><i class="bi bi-x-circle"></i></td>
+                {% endif %}
                 {% if device.Po17 == True %}
                     <td><i class="bi bi-check-circle"></i></td>
                 {% else %}
                     <td><i class="bi bi-x-circle"></i></td>
+                {% endif %}
                 <td>TODO</td>
             </tr>
             {% endfor %}
