@@ -48,7 +48,7 @@ def GetStatusVLAN(request, vlan):
         'vlan': vlan
     }
     print (context)
-    return render(request, 'checkvlan.html', context)
+    return render(request, 'vlan.html', context)
 
 
 # [   

@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'catalog.apps.CatalogConfig',
     'node',
     'findsfp',
-    'checkvxlan'
+    'dci'
 ]
 
 MIDDLEWARE = [
@@ -58,7 +58,9 @@ ROOT_URLCONF = 'aciDjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

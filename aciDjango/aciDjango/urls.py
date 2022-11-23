@@ -17,15 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from node.views import GetNode, GetNodeInfo
 from findsfp.views import GetSFP
-from checkvxlan.views import GetStatusVLAN, GetStatusVXLAN
+from dci.views import GetStatusVLAN, GetStatusVXLAN
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', GetNode.as_view(template_name='node.html'), name='Node View'),
     path('node/<int:node>/', GetNodeInfo),
     path('findsfp/', GetSFP.as_view(template_name='sfp.html'), name='Find SFP'),
-    # path('checkvxlan/', GetStatusVXLAN, name='Check VXLAN'),
-    path('checkvxlan/<int:vlan>/', GetStatusVLAN, name='Check VLAN'),
+    path('dci/<int:vlan>/', GetStatusVLAN, name='Check DCI'),
 ]
 
 # from django.views.generic import RedirectView
