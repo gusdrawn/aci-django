@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %} DCI Check {% endblock %}
+<!-- <i class="bi bi-check-circle"></i>
+<i class="bi bi-x-circle"></i> -->
+
+
+{% block content %}
+
+<h1>Status DCI</h1>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        
+        <th>Device</th>
+        <th>OSPF</th>
+        <th>Uptime</th>
+        <th>BGP</th>
+        <th>Interfaces</th>
+        <th>Transceiver</th>
+        <th>Errors</th>
+        <th>Storm-C.</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for device in devicesChecked %}
+            <tr>
+                <td>{{ device.Device }}</td>
+                {% if device.ospf == True %}
+                    <td><i class="bi bi-check-circle"></i></td>
+                {% else %}
+                    <td><i class="bi bi-x-circle"></i></td>
+                {% endif %}
+                {% if device.uptime_status == True %}
+                    <td><i class="bi bi-check-circle"></i></td>
+                {% else %}
+                    <td><i class="bi bi-x-circle"></i></td>
+                {% endif %}
+                {% if device.bgp == True %}
+                    <td><i class="bi bi-check-circle"></i></td>
+                {% else %}
+                    <td><i class="bi bi-x-circle"></i></td>
+                {% endif %}
+                {% if device.interface == True %}
+                    <td><i class="bi bi-check-circle"></i></td>
+                {% else %}
+                    <td><i class="bi bi-x-circle"></i></td>
+                {% endif %}
+                {% if device.transceiver == True %}
+                    <td><i class="bi bi-check-circle"></i></td>
+                {% else %}
+                    <td><i class="bi bi-x-circle"></i></td>
+                {% endif %}
+                {% if device.error == True %}
+                    <td><i class="bi bi-check-circle"></i></td>
+                {% else %}
+                    <td><i class="bi bi-x-circle"></i></td>
+                {% endif %}
+                {% if device.storm == True %}
+                    <td><i class="bi bi-check-circle"></i></td>
+                {% else %}
+                    <td><i class="bi bi-x-circle"></i></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -10,7 +10,7 @@ def captureHost():
     ##if type == 'aci':
         ## def aciHost(ip,username, password,site,context):
         ##aciHost()
-    devlist = aciHost('https://10.0.0.1','UserA','SuperSecret','SiteA')
+    devlist = aciHost('https://10.249.0.4','gguillen','SecretPassword','DCC')
     return devlist
 
 class GetSFP(TemplateView):

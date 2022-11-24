@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from node.views import GetNode, GetNodeInfo
 from findsfp.views import GetSFP
-from dci.views import GetStatusVLAN, GetStatusVXLAN
+from dci.views import GetStatusVLAN, GetStatusVXLAN, GetStatusDCI
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +25,7 @@ urlpatterns = [
     path('node/<int:node>/', GetNodeInfo),
     path('findsfp/', GetSFP.as_view(template_name='sfp.html'), name='Find SFP'),
     path('dci/<int:vlan>/', GetStatusVLAN, name='Check DCI'),
+    path('dci/', GetStatusDCI, name='Check DCI'),
 ]
 
 # from django.views.generic import RedirectView

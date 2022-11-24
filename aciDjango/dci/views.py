@@ -1,18 +1,39 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.http import HttpResponse
-from .nxos_api import n9k_vlans, n7k_vlans
+from .nxos_api import n9k_vlans, n7k_vlans, n9k_dci
 from django.template.loader import get_template
 
 devicesChecked = []
 devices_list = []
 
-devices_list.append({
-        'device':"10.227.70.145",
+USERNAME = "SUPER USER"
+PASSWORD = "USER PASSWORD"
+
+devices_list = [{
+        'device':"10.239.0.98",
         'device_type': "n9k",
-        'username': "admin",
-        'password': "admin"
-    })
+        'username': USERNAME,
+        'password': PASSWORD
+    },
+    {
+        'device':"10.239.0.99",
+        'device_type': "n9k",
+        'username': USERNAME,
+        'password': PASSWORD
+    },
+    {
+        'device':"10.249.0.188",
+        'device_type': "n9k",
+        'username': USERNAME,
+        'password': PASSWORD
+    },
+    {
+        'device':"10.249.0.187",
+        'device_type': "n9k",
+        'username': USERNAME,
+        'password': PASSWORD
+    }]
 
 
 class GetStatusVXLAN(TemplateView):
@@ -47,9 +68,15 @@ def GetStatusVLAN(request, vlan):
         'devicesChecked': devicesChecked,
         'vlan': vlan
     }
-    print (context)
     return render(request, 'vlan.html', context)
 
+def GetStatusDCI(request):
+    for device in devices_list:
+        devicesChecked.append(n9k_dci(device["device"],device["username"],device["password"]))
+    context = {
+        'devicesChecked': devicesChecked,
+    }
+    return render(request, 'dci.html', context)
 
 # [   
 #     0: {

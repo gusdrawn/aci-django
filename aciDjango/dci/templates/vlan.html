@@ -1,8 +1,11 @@
-{% include "dci/header.html" %}
+{% extends "base.html" %}
 
+{% block title %} Vlan Check {% endblock %}
 <!-- <i class="bi bi-check-circle"></i>
 <i class="bi bi-x-circle"></i> -->
 
+
+{% block content %}
 <h1>VLAN {{ vlan }}</h1>
 <h2>VLAN Status</h2>
 <table class="table table-hover">
@@ -45,4 +48,4 @@
             {% endfor %}
     </tbody>
 </table>
-{% include "footer.html" %}
+{% endblock %}
